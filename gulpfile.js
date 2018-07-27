@@ -20,24 +20,36 @@ global.$ = {
   // packages - start
   gulp: require('gulp'),
   browserSync: require('browser-sync').create(),
+  del: require('del'),
+
+  // html
   prettify: require('gulp-html-prettify'),
   njkRender: require('gulp-nunjucks-render'),
-  gulpIf: require('gulp-if'),
   htmlmin: require('gulp-htmlmin'),
-  del: require('del'),
+  pug: require('gulp-pug'),
+  rep: require('gulp-replace-image-src'), // замена путей для изображений
+
+  // css
   sass: require("gulp-sass"),
-  sourcemaps: require("gulp-sourcemaps"),
   postcss: require("gulp-postcss"),
   autoprefixer: require("autoprefixer"),
   csso: require("postcss-csso"),
+  normalize: require("node-normalize-scss").includePaths,
+  rewriteCSS: require('gulp-rewrite-css'),  // замена путей для изображений
+
+  // =====================================
+  gulpIf: require('gulp-if'),
+  sourcemaps: require("gulp-sourcemaps"),  
   plumber: require("gulp-plumber"),
   notify: require("gulp-notify"),
   rename: require("gulp-rename"),
-  normalize: require("node-normalize-scss").includePaths,
-  imagemin: require('gulp-imagemin'),
-  rep: require('gulp-replace-image-src'),
-  rewriteCSS: require('gulp-rewrite-css'),
+  //====================================== 
 
+  // img
+  imagemin: require('gulp-imagemin'),
+
+
+  // js
   webpack: require("webpack"),
   gulpWebpack: require("webpack-stream"),
   webpackConfig: require("./webpack.config"),
@@ -67,14 +79,14 @@ if ($.dev) {
   $.gulp.task('build',
     $.gulp.series(
       "clean",
-      $.gulp.parallel("fonts", "img:opt", "html", "sass", "webpack")
+      $.gulp.parallel("fonts", "img:opt", "pug", "sass", "webpack")
     )
   );
 } else {
   $.gulp.task('build',
     $.gulp.series(
       "clean",
-      $.gulp.parallel("fonts", "img", "html", "sass", "webpack")
+      $.gulp.parallel("fonts", "img", "pug", "sass", "webpack")
     )
   );
 }
@@ -82,7 +94,7 @@ if ($.dev) {
 $.gulp.task('default',
   $.gulp.series(
     "clean",
-    $.gulp.parallel("fonts", "img", "html", "sass", "webpack"),
+    $.gulp.parallel("fonts", "img", "pug", "sass", "webpack"),
     $.gulp.parallel("watch", "serve")
   )
 );

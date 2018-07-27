@@ -1,8 +1,8 @@
 module.exports = function() {
   $.gulp.task('watch', function() {
     $.gulp.watch(
-      ['src/template/*.html', 'src/template/common/**/*.html'],
-      $.gulp.series('html')
+      ['src/template/*.pug', 'src/template/common/**/*.pug'],
+      $.gulp.series('pug')
     );
     $.gulp.watch(
       'src/sass/**/*.sass',

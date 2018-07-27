@@ -1,6 +1,7 @@
 module.exports = function() {
-  $.gulp.task('html', function() {
-    return $.gulp.src($.html + '*.html')
+
+  $.gulp.task('pug', function() {
+    return $.gulp.src($.html + '*.pug')
       .pipe($.plumber({
         errorHandler: $.notify.onError(function(error) {
           return {
@@ -9,20 +10,21 @@ module.exports = function() {
           };
         })
       }))
+      .pipe($.pug(
+        { 
+          pretty: $.dev ? true : false,
+          data: {
+            css_name: ($.dev) ? '' : '.min'
+          }
+        }
+      ))
+      .pipe($.gulpIf($.dev, $.prettify({indent_size : 2})))
       .pipe($.rep({
         prependSrc : './assets/img/',
         keepOrigin : false
-      }))
-      .pipe($.njkRender({
-        path: ['src/template/'],
-        ext: '.html',
-        data: {
-          css_name: ($.dev) ? '' : '.min'
-        }
-      }))
-      .pipe($.gulpIf($.dev, $.prettify({indent_size : 2})))
-      .pipe($.gulpIf(!$.dev, $.htmlmin({collapseWhitespace: true})))
+      }))      
       .pipe($.gulp.dest($.dist))
       .pipe( $.browserSync.reload({ stream: true }));
   })
+
 }
