@@ -5,9 +5,6 @@ const dev = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 
 const basicConfig = {
   entry: {
-
-    // vendor: ['svg4everybody', 'jquery'],
-    // vendor:'./src/js/vendor.js',
     index: "./src/js/index.js"
   },
   output: {
@@ -41,16 +38,16 @@ const basicConfig = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
-          // chunks: 'initial',
-          chunks: 'all',
+          chunks: 'initial',
+          // chunks: 'all',
           // minChunks: 2
         },
         // vendors: {
         //   test: /[\\/]node_modules[\\/]/,
         //   name: 'vendor',
         //   enforce: true,
-        //   chunks: 'initial',
-        //   // chunks: 'all'
+        //   // chunks: 'initial',
+        //   chunks: 'all'
         // }
       }
     }
