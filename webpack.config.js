@@ -5,13 +5,16 @@ const dev = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 
 const basicConfig = {
   entry: {
-    vendor:'./src/js/vendor.js',
+
+    // vendor: ['svg4everybody', 'jquery'],
+    // vendor:'./src/js/vendor.js',
     index: "./src/js/index.js"
   },
   output: {
     path: path.resolve(__dirname, "./dist/assets/js/"),
-    publicPath: "/dist/assets/",
-    filename: "[name].bundle.js"
+    publicPath: "/assets/js/",
+    filename: "[name].bundle.js",
+    chunkFilename: '[name].chunk.js'
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -30,6 +33,27 @@ const basicConfig = {
         }
       }
     ]
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          // chunks: 'initial',
+          chunks: 'all',
+          // minChunks: 2
+        },
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/]/,
+        //   name: 'vendor',
+        //   enforce: true,
+        //   chunks: 'initial',
+        //   // chunks: 'all'
+        // }
+      }
+    }
   }
 };
 
@@ -41,3 +65,4 @@ if (!dev) {
 }
 
 module.exports = basicConfig;
+

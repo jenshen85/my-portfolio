@@ -3,6 +3,8 @@
 global.$ = {
 
   dev: !process.env.NODE_ENV || process.env.NODE_ENV === "development",
+  fs: require('fs'),
+  testFolder: './dist/assets/js/',
 
   // path - start
   html: './src/template/',
@@ -33,6 +35,8 @@ global.$ = {
   rename: require("gulp-rename"),
   normalize: require("node-normalize-scss").includePaths,
   imagemin: require('gulp-imagemin'),
+  rep: require('gulp-replace-image-src'),
+  rewriteCSS: require('gulp-rewrite-css'),
 
   webpack: require("webpack"),
   gulpWebpack: require("webpack-stream"),
@@ -59,12 +63,21 @@ $.tasks.forEach((taskPath) => {
   require(taskPath)();
 });
 
-$.gulp.task('build',
-  $.gulp.series(
-    "clean",
-    $.gulp.parallel("fonts", "img", "html", "sass", "webpack")
-  )
-);
+if ($.dev) {
+  $.gulp.task('build',
+    $.gulp.series(
+      "clean",
+      $.gulp.parallel("fonts", "img:opt", "html", "sass", "webpack")
+    )
+  );
+} else {
+  $.gulp.task('build',
+    $.gulp.series(
+      "clean",
+      $.gulp.parallel("fonts", "img", "html", "sass", "webpack")
+    )
+  );
+}
 
 $.gulp.task('default',
   $.gulp.series(

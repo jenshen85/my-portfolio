@@ -23,4 +23,28 @@ module.exports = function() {
       ])))
       .pipe($.gulp.dest($.assets + 'img/'));
   });
+  $.gulp.task("img:opt", function() {
+    return $.gulp
+      .src([$.img + "**/*.{jpg,png,jpeg,svg,gif,ico}", '!src/img/srcSprite/**'])
+      .pipe($.plumber({
+        errorHandler: $.notify.onError(function(error) {
+          return {
+            title: "Images",
+            message: error.message
+          };
+        })
+      }))
+      .pipe($.imagemin([
+        $.imagemin.gifsicle({interlaced: true}),
+        $.imagemin.jpegtran({progressive: true}),
+        $.imagemin.optipng({optimizationLevel: 5}),
+        $.imagemin.svgo({
+          plugins: [
+            {removeViewBox: false},
+            {cleanupIDs: false}
+          ]
+        })
+      ]))
+      .pipe($.gulp.dest($.assets + 'img/'));
+  });
 }

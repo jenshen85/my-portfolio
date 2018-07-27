@@ -16,4 +16,13 @@ module.exports = function() {
       .pipe($.gulp.dest($.assets + 'js/'));
     }
   );
+
+  // $.gulp.task("js:name", function() {
+  //   return $.fs.readdir($.testFolder, (err, files) => {
+  //     files.forEach(file => {
+  //       console.log(file);
+  //     });
+  //   })
+  // })
+
 }

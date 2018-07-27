@@ -19,17 +19,30 @@ module.exports = function() {
           includePaths: $.normalize
         })
       )
+      .pipe($.rewriteCSS({
+        destination: './dist/'
+      }))
+      // .pipe($.gulpIf(!$.dev, $.postcss([
+      //     $.autoprefixer({
+      //       browsers: ["last 4 versions"],
+      //       cascade: false
+      //     }),
+      //     $.csso
+      // ])))
+      .pipe($.postcss([
+        $.autoprefixer({
+          browsers: ['ie >= 8', 'last 10 version'],
+          cascade: false
+        })
+      ]))
       .pipe($.gulpIf(!$.dev, $.postcss([
-          $.autoprefixer({
-            browsers: ["last 4 versions"],
-            cascade: false
-          }),
-          $.csso
+        $.csso
       ])))
       .pipe($.gulpIf(!$.dev, $.rename({
         suffix: ".min"
       })))
       .pipe($.gulpIf($.dev, $.sourcemaps.write("./")))
-      .pipe($.gulp.dest($.assets + 'css/'));
+      .pipe($.gulp.dest($.assets + 'css/'))
+      .pipe( $.browserSync.reload({ stream: true }));
   })
 }

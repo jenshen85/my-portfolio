@@ -9,6 +9,10 @@ module.exports = function() {
           };
         })
       }))
+      .pipe($.rep({
+        prependSrc : './assets/img/',
+        keepOrigin : false
+      }))
       .pipe($.njkRender({
         path: ['src/template/'],
         ext: '.html',
@@ -18,6 +22,7 @@ module.exports = function() {
       }))
       .pipe($.gulpIf($.dev, $.prettify({indent_size : 2})))
       .pipe($.gulpIf(!$.dev, $.htmlmin({collapseWhitespace: true})))
-      .pipe($.gulp.dest($.dist));
+      .pipe($.gulp.dest($.dist))
+      .pipe( $.browserSync.reload({ stream: true }));
   })
 }
