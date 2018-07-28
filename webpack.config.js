@@ -42,13 +42,6 @@ const basicConfig = {
           // chunks: 'all',
           // minChunks: 2
         },
-        // vendors: {
-        //   test: /[\\/]node_modules[\\/]/,
-        //   name: 'vendor',
-        //   enforce: true,
-        //   // chunks: 'initial',
-        //   chunks: 'all'
-        // }
       }
     }
   }

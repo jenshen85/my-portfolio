@@ -4,6 +4,7 @@ global.$ = {
 
   dev: !process.env.NODE_ENV || process.env.NODE_ENV === "development",
   fs: require('fs'),
+  File: require('vinyl'),
   testFolder: './dist/assets/js/',
 
   // path - start
@@ -12,9 +13,12 @@ global.$ = {
   js: './src/js/',
   img: './src/img/',
   fonts: './src/fonts/',
-  sprite: './src/img/srcSprite/',
+  sprite: './src/img/sprite/',
   dist: './dist/',
   assets: './dist/assets/',
+  destHtml: './dist/*.html',
+  destJs: './dist/assets/js/*.js',
+  destCss: './dist/assets/css/*.css',
   // path - end
 
   // packages - start
@@ -27,7 +31,7 @@ global.$ = {
   njkRender: require('gulp-nunjucks-render'),
   htmlmin: require('gulp-htmlmin'),
   pug: require('gulp-pug'),
-  rep: require('gulp-replace-image-src'), // замена путей для изображений
+  htmlclean: require('gulp-htmlclean'),
 
   // css
   sass: require("gulp-sass"),
@@ -43,6 +47,8 @@ global.$ = {
   plumber: require("gulp-plumber"),
   notify: require("gulp-notify"),
   rename: require("gulp-rename"),
+  inject: require('gulp-inject'),
+  through2: require("through2").obj,
   //====================================== 
 
   // img
@@ -56,12 +62,12 @@ global.$ = {
   // packages - end
 
   // not installed packages - start
-  // svgSprite: require("gulp-svg-sprite"),
-  // svgmin: require("gulp-svgmin"),
-  // replace: require("gulp-replace"),
-  // cheerio: require("gulp-cheerio"),
-  // merge: require("merge-stream"),
-  // spritesmith: require("gulp.spritesmith"),
+  svgSprite: require("gulp-svg-sprite"),
+  svgmin: require("gulp-svgmin"),
+  replace: require("gulp-replace"),
+  cheerio: require("gulp-cheerio"),
+  merge: require("merge-stream"),
+  spritesmith: require("gulp.spritesmith"),
   // not installed packages - end
 
   // path for tasks - start
@@ -79,14 +85,18 @@ if ($.dev) {
   $.gulp.task('build',
     $.gulp.series(
       "clean",
-      $.gulp.parallel("fonts", "img:opt", "pug", "sass", "webpack")
+      "svg:sprite",
+      $.gulp.parallel("fonts", "img:opt", "pug", "sass", "webpack"),
+      "inject"
     )
   );
 } else {
   $.gulp.task('build',
     $.gulp.series(
       "clean",
-      $.gulp.parallel("fonts", "img", "pug", "sass", "webpack")
+      "svg:sprite",
+      $.gulp.parallel("fonts", "img", "pug", "sass", "webpack"),
+      "inject"
     )
   );
 }
@@ -94,7 +104,9 @@ if ($.dev) {
 $.gulp.task('default',
   $.gulp.series(
     "clean",
+    "svg:sprite",
     $.gulp.parallel("fonts", "img", "pug", "sass", "webpack"),
+    "inject",
     $.gulp.parallel("watch", "serve")
   )
 );

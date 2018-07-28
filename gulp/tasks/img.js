@@ -1,7 +1,7 @@
 module.exports = function() {
   $.gulp.task("img", function() {
     return $.gulp
-      .src([$.img + "**/*.{jpg,png,jpeg,svg,gif,ico}", '!src/img/srcSprite/**'])
+      .src([$.img + "**/*.{jpg,png,jpeg,svg,gif,ico}", '!src/img/sprite/**'])
       .pipe($.plumber({
         errorHandler: $.notify.onError(function(error) {
           return {
@@ -25,7 +25,7 @@ module.exports = function() {
   });
   $.gulp.task("img:opt", function() {
     return $.gulp
-      .src([$.img + "**/*.{jpg,png,jpeg,svg,gif,ico}", '!src/img/srcSprite/**'])
+      .src([$.img + "**/*.{jpg,png,jpeg,svg,gif,ico}", '!src/img/sprite/**'])
       .pipe($.plumber({
         errorHandler: $.notify.onError(function(error) {
           return {
@@ -47,4 +47,5 @@ module.exports = function() {
       ]))
       .pipe($.gulp.dest($.assets + 'img/'));
   });
+
 }

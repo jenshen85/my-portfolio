@@ -5,7 +5,7 @@ module.exports = function() {
       symbol: {
         sprite: "../sprite.svg",
         example: {
-          dest: "../tmp/spriteSvgDemo.html" // демо html
+          dest: "../sprite/spriteSvgDemo.html" // демо html
         }
       }
     }
@@ -13,8 +13,8 @@ module.exports = function() {
 
   $.gulp.task("svg:sprite", function() {
     return (
-      gulp
-        .src("src/img/**/*.svg")
+      $.gulp
+        .src([$.sprite + "source/**/*.svg", "!src/img/sprite/sprite.svg"])
         // минифицируем svg
         .pipe(
           $.svgmin({
@@ -40,7 +40,7 @@ module.exports = function() {
         .pipe($.replace("&gt;", ">"))
         // build svg sprite
         .pipe($.svgSprite(conf))
-        .pipe($.gulp.dest("src/img/sprite/"))
+        .pipe($.gulp.dest("src/img/"))
     );
   });
 }

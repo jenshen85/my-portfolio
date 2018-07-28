@@ -2,7 +2,7 @@ module.exports = function() {
   $.gulp.task('watch', function() {
     $.gulp.watch(
       ['src/template/*.pug', 'src/template/common/**/*.pug'],
-      $.gulp.series('pug')
+      $.gulp.series('pug', 'inject')
     );
     $.gulp.watch(
       'src/sass/**/*.sass',
@@ -19,6 +19,10 @@ module.exports = function() {
     $.gulp.watch(
       'src/img/**/*.{jpg,png,jpeg,svg,gif}',
       $.gulp.series('img')
-    );    
+    );
+    $.gulp.watch(
+      'src/img/sprite/source/**/*.svg',
+      $.gulp.series('svg:sprite')
+    );
   });
 }

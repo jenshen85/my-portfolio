@@ -88,10 +88,32 @@
   &:active
     @content
 
+=fs
+  &:focus
+    @content
+
 =last
   &:last-child
     @content
 
+=first
+  &:first-child
+    @content
+
+=nth($var)
+  &:nth-child($var)
+    @content
+
+=before
+  &:before
+    content: ""
+    @content
+
+=after
+  &:after
+    content: ""
+    @content
+    
 %pseudo
   position: relative
   &:before,&:after

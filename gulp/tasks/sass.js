@@ -1,6 +1,6 @@
 module.exports = function() {
   $.gulp.task('sass', function() {
-    return $.gulp.src($.style + "[^_]*.{sass,scss}")
+    return $.gulp.src([$.style + "[^_]*.{sass,scss}", "!src/sass/_sprite.sass"])
       .pipe(
         $.plumber({
           errorHandler: $.notify.onError(function(error) {

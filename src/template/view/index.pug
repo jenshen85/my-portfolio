@@ -1,0 +1,15 @@
+extends ./layout/_layout.pug
+
+block title
+  title General
+
+block content
+  .block
+    svg.block-img
+      use(xlink:href="./assets/img/sprite.svg#check")
+    svg.block-img
+      use(xlink:href="./assets/img/sprite.svg#check")
+    svg.block-img
+    include ./common/header.pug
+    img(src="./assets/img/fav_mount.png", alt="")
+    

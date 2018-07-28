@@ -1,6 +1,6 @@
 module.exports = function() {
   $.gulp.task("png:sprite", function() {
-    var spriteData = $.gulp.src("src/img/**/*.png").pipe(
+    var spriteData = $.gulp.src(["src/img/sprite/**/*.png", "!src/img/sprite/sprite.png"]).pipe(
       $.spritesmith({
         // retinaSrcFilter: './src/images/png/*@2x.png',
         imgName: "sprite.png", // итоговый спрайт
@@ -12,10 +12,10 @@ module.exports = function() {
       })
     );
     var imgStream = spriteData.img.pipe(
-      $.gulp.dest("src/img/sprite/")
+      $.gulp.dest($.sprite)
     ); // путь куда записываем спрайт
 
-    var cssStream = spriteData.css.pipe($.gulp.dest(config.src.sass)); // путь куда записываем файл стилей для спрайта
+    var cssStream = spriteData.css.pipe($.gulp.dest($.style)); // путь куда записываем файл стилей для спрайта
 
     return $.merge(imgStream, cssStream);
   });
