@@ -1,0 +1,48 @@
+.modal-overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  +tr(all 0.5s)
+  transform: scale(0)
+  will-change: transform
+  opacity: 0
+
+  &.active
+    transform: scale(1)
+    opacity: 1
+    .modal-window
+      opacity: 1
+
+.modal-window
+  padding: 20px 50px
+  background-color: #fff
+  +roboto
+  font-size: rem(16px)
+  color: $color-text
+  text-align: center
+  border-radius: 6px
+  +tr(all 0.5s)
+  opacity: 0
+
+.modal-info
+  margin-bottom: 20px
+
+.modal-button
+  background-color: $color-green
+  border-radius: 6px
+  border: 0
+  outline: transparent
+  color: rgba(255, 255, 255, 0.8)
+  font-weight: 500
+  font-size: 16px
+  +tr(all 0.5s)
+  padding: 15px 20px
+  cursor: pointer
+
+  +hv
+    background-color: $color-green-hv

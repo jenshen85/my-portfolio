@@ -1,22 +1,26 @@
 'use strict'
 
-let str = /..\/img\//g;
-let destSrc = './assets/img/';
-let File = require('vinyl');
-let file = '../../template/index.pug'
+const welcomButton = document.getElementById('autorisation-button');
+const toGeneral = document.getElementById('to-general')
+const backButton =document.querySelector('.welcom__button');
+const flipp = document.querySelector('.flipper');
 
-const fs = require('fs');
+if (flipp !== null) {
 
-let f = new File();
-console.log(f);
+  welcomButton.addEventListener("click", () => {
 
-fs.readFile(file, 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  var result = data.replace(str, destSrc);
+    flipp.classList.add("active");
+    backButton.classList.add("active");
 
-  fs.writeFile(file, result, 'utf8', function (err) {
-    if (err) return console.log(err);
-  });
-});
+  })
+
+  toGeneral.addEventListener('click', (e) => {
+
+    e.preventDefault();
+
+    flipp.classList.remove("active");
+    backButton.classList.remove("active");
+
+  })
+
+}

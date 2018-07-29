@@ -7,8 +7,5 @@ import svg4everybody from 'svg4everybody';
 
 svg4everybody()
 
-// import './common/main';
-
-// $('.block').on('click', () => {
-//   console.log('hello');
-// })
+import './common/main';
+import './common/modal';

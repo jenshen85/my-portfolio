@@ -1,14 +1,362 @@
-=roboto
-	font-family: "roboto", serif
 
-=bern-dist
-	font-family: "bernierdistressed", serif
+.welcom-section
+	background-color: #e4e8eb
+	background-image: url("../../img/welcom-bg.jpg")
+	background-size: cover
+	background-position: center top
+	height: 100vh
+	position: relative
 
-=bern-reg
-	font-family: "bernierregular", serif
 
-=bern-shad
-	font-family: "berniershade", serif
+.welcom-container
+	width: 100%
+	height: 100%
+	position: relative
+	display: flex	
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	+tr(all 0.5s)
 
-body
-	background-image: url('../../img/icons/fav_mount.png')
+.welcom__button
+	position: absolute
+	right: 10px
+	top: 25px
+	+tr(all 0.5s)
+	opacity: 1
+
+	&.active
+		transform: translateY(-100px)
+		opacity: 0
+
+	.autorisation-button
+		background-color: transparent
+		border-radius: 6px
+		border: 2px solid #fff
+		padding: 15px 30px
+		+roboto
+		font-size: rem(16px)
+		font-weight: 500
+		color: #fff
+		+tr(all 0.4s)
+
+		+hv
+			color: $color-green
+			background-color: #fff
+
+// flipper
+.flipper__wrapp
+	width: 380px
+	height: 400px
+
+.flipper
+	width: 100%
+	height: 100%
+	position: relative
+	perspective: 1000px
+
+	&.active
+		.flipper__front
+			transform: rotateY(180deg)
+		.flipper__back
+			transform: rotateY(360deg)
+
+.flipper__front,
+.flipper__back
+	perspective: 700px
+	background-color: rgba(255, 255, 255, 0.8)
+	position: absolute
+	overflow: hidden
+	border-radius: 6px
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	backface-visibility: hidden
+	+tr(all 0.5s)
+	will-change: transform
+
+
+.flipper__back
+	transform: rotateY(180deg)
+
+.front__content,
+.back__content
+	display: flex
+	flex-direction: column
+	align-items: center
+	padding: 40px 60px 0
+
+.front__avatar
+	width: 120px
+	height: 120px
+	border-radius: 50%
+	overflow: hidden
+	font-size: 0
+	// margin-bottom: 20px
+	&-img
+		width: 100%
+		height: 100%
+		object-fit: cover
+		display: block
+
+.front__title
+	display: flex
+	flex-direction: column
+	width: 100%
+	text-align: center
+	color: $color-text
+	margin-bottom: 40px
+	+roboto
+
+	.front__title-top
+		font-weight: 500
+		font-size: rem(28px)
+		margin-bottom: 10px
+
+	.front__title-bottom
+		font-weight: 40
+		font-size: rem(16px)
+
+.social__list
+	display: flex
+	align-items: center
+	margin-bottom: 40px
+.social__item
+	margin-right: 30px
+	+last
+		margin-right: 0
+.social__img
+	width: 30px
+	height: 30px
+	fill: rgba($color-green, 0.7)
+	+tr(all 0.4s)
+
+	+hv
+		fill: rgba($color-green, 1)
+
+.front__link-wrapp
+	width: 100%
+	display: flex
+	
+	.front__link
+		+roboto
+		color: #fff
+		flex: rem(16px)
+		font-weight: 500
+		text-align: center
+		display: flex
+		align-items: center
+		justify-content: center
+		background-color: rgba($color-green, 1)
+		padding: 15px 0
+		border-right: 2px solid rgba(255, 255, 255, 0.8)
+		+tr(all 0.4s)
+		flex-grow: 1
+
+		+last
+			border-right: 0
+
+		+hv
+			background-color: rgba(#009688, 0.85)
+
+.welcom__copyright
+	+roboto
+	font-weight: 300
+	font-size: rem(16px)
+	color: #fff
+	position: absolute
+	left: 50%
+	transform: translateX(-50%)
+	bottom: 35px
+
+// flipper -back
+.back__content
+	padding: 35px 0 0
+	
+.back__title
+	width: 100%
+	text-align: center
+	padding: 0 20px
+	+bernr
+	font-size: rem(35px)
+	color: $color-text
+	margin-bottom: 40px
+	display: flex
+	justify-content: center
+	align-items: center
+
+.title-decor
+	position: relative
+
+	&:before,
+	&:after
+		position: absolute
+		content: ""
+		top: 50%
+		transform: translateY(-50%)
+		width: 25px
+		height: 5px
+		background-color: #d1d2d2
+	&:before
+		left: -35px
+	&:after
+		right: -35px
+
+.back__form-wrapp
+	width: 100%
+
+.welcom__form
+	width: 100%
+	display: flex
+	flex-direction: column
+	align-items: center
+	+roboto
+	font-size: rem(16px)
+	font-weight: 400
+	color: $color-text
+
+.welcom__form-field
+	padding: 0 20px
+	width: 100%
+	display: flex
+	align-items: center
+	margin-bottom: 20px
+
+	+last
+		margin-bottom: 40px
+
+.form-field__img
+	align-self: stretch
+	padding: 0 15px
+	background-color: #f0efe9
+	display: flex
+	justify-content: center
+	align-items: center
+	border-top-left-radius: 6px
+	border-bottom-left-radius: 6px
+
+	.form-field__img-icon
+		width: 17px
+		height: 17px
+		fill: #c4cbcd
+
+.form-field__input
+	padding: 15px 20px
+	border: 0
+	color: #373e42
+	+roboto
+	font-size: rem(16px)
+	font-weight: 400
+	width: 100%
+	border-top-right-radius: 6px
+	border-bottom-right-radius: 6px
+	outline: transparent
+
+.form-field__label
+	display: flex
+	width: 100%
+	align-items: center
+	justify-content: center
+
+.form-field__check
+	display: none
+
+	&:checked
+		& + .form-field__check--fake
+			.form-field__check-img
+				opacity: 1
+
+.form-field__check--fake
+	width: 22px
+	height: 22px
+	background-color: $color-green
+	margin-right: 10px
+	border-radius: 4px
+	display: flex
+	justify-content: center
+	align-items: center
+	cursor: pointer
+
+	.form-field__check-img
+		width: 15px
+		height: 15px
+		fill: #ffffff
+		+tr(all 0.4s)
+		opacity: 0
+
+.welcom__form-field--radio
+	flex-direction: column
+
+.form-field__radio-title
+	font-weight: 700
+	font-size: rem(16px)
+	margin-bottom: 10px
+
+.form-field__radio-wrapp
+	display: flex
+	width: 100%
+	align-items: center
+
+.form-field__radio
+	display: none
+
+	&:checked
+		& + .form-field__radio--fake:before
+			opacity: 1
+
+		~ .form-field__radio-text
+			color: $color-green
+
+.form-field__radio--fake
+	width: 20px
+	height: 20px
+	border-radius: 50%
+	border: 2px solid #d0d0d1
+	position: relative
+	margin-right: 10px
+	cursor: pointer
+
+	&:before
+		position: absolute
+		content: ""
+		top: 50%
+		left: 50%
+		width: 8px
+		height: 8px
+		border-radius: 50%
+		transform: translate(-50%, -50%)
+		background-color: $color-green
+		+tr(all 0.4s)
+		opacity: 0
+
+.form-field__radio-text
+	+tr(all 0.4s)
+
+.welcom__form-buttons
+	width: 100%
+	display: flex
+	align-items: center
+
+.form-buttons__button
+	width: 50%
+	padding: 15px 0
+	border: 0
+	cursor: pointer
+	+roboto
+	font-weight: 500
+	font-size: 16px
+	color: #fff
+	background-color: rgba($color-green, 1)
+	padding: 15px 0
+	border-right: 2px solid rgba(255, 255, 255, 0.8)
+	+tr(all 0.4s)
+
+	+last
+		border-right: 0
+
+	+hv
+		background-color: rgba(#009688, 0.85)

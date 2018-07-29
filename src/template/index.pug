@@ -4,5 +4,76 @@ block title
   title General
 
 block content
-  .block
+  section.section.welcom-section
+    .container.welcom-container
+      .welcom__button
+        button.button.autorisation-button#autorisation-button Авторизоваться
+      .welcom__window
+        .flipper__wrapp
+          .flipper
+            .flipper__front
+              .front__content
+                .front__avatar
+                  img.front__avatar-img(src="../img/avatar.jpg", alt="")
+                .front__title
+                  .front__title-top Владимир Астахов
+                  .front__title-bottom Личный сайт веб разработчика
+                .front__social
+                  ul.social__list
+                    li.social__item
+                      a.social__link(href="https://vk.com/jenshen85")
+                        svg.social__img
+                          use(xlink:href='../img/sprite.svg#vk')
+                    li.social__item
+                      a.social__link(href="https://github.com/jenshen85")
+                        svg.social__img
+                          use(xlink:href='../img/sprite.svg#github')
+                    li.social__item
+                      a.social__link(href="#")
+                        svg.social__img
+                          use(xlink:href='../img/sprite.svg#in')
+              .front__link-wrapp
+                  a.front__link(href="") Мои работы
+                  a.front__link(href="") Обо мне
+                  a.front__link(href="") Блог
+            .flipper__back
+              .back__content
+                .back__title
+                  .back__title-text.title-decor Авторизуйтесь
+                .back__form-wrapp
+                  form.welcom__form(metod="post" action="")
+                    .welcom__form-field
+                      .form-field__img
+                        svg.form-field__img-icon
+                          use(xlink:href="../img/sprite.svg#login")
+                      input.form-field__input(id="login" type="text" placeholder="Логин")
+                    .welcom__form-field
+                      .form-field__img
+                        svg.form-field__img-icon
+                          use(xlink:href="../img/sprite.svg#password")
+                      input.form-field__input(id="pasword" type="text" placeholder="Пароль")
+                    .welcom__form-field
+                      label.form-field__label(for="man")
+                        input.form-field__check(checked type="checkbox" id="man")
+                        .form-field__check--fake
+                          svg.form-field__check-img
+                            use(xlink:href="../img/sprite.svg#check")
+                        .form-field__chek-text Я человек
+                    .welcom__form-field.welcom__form-field--radio
+                      .form-field__radio-title Вы точно не робот?
+                      .form-field__radio-wrapp
+                        label.form-field__label(for="yes")
+                          input.form-field__radio(checked type="radio" name="robot" id="yes")
+                          .form-field__radio--fake
+                          .form-field__radio-text Да
+                        label.form-field__label(for="no")
+                          input.form-field__radio(type="radio" name="robot" id="no")
+                          .form-field__radio--fake
+                          .form-field__radio-text Нет
+                    .welcom__form-buttons
+                      button.form-buttons__button(id="to-general") На главную
+                      button.form-buttons__button(type="submit" id="login-button") Войти
+      .welcom__copyright © Владимир Астахов | создано с любовью в LoftSchool | 2016
+    //- include ./common/modal.pug
     
+      
