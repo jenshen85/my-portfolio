@@ -1,0 +1,122 @@
+extends ./layout/_layout.pug
+
+block title
+  title My works
+
+block content
+  main.main-content
+    section.section.hero-section
+      .container.hero-container
+        .hero__bg-word
+          svg.bg-word__img.bg-word__img--portfolio
+            use(xlink:href="../img/sprite.svg#portfolio_header")
+        .hero-socials
+          include ./common/socials.pug
+        .menu-button__wrapp
+          .menu-button
+            .menu-button__elem
+        .hero__avatar
+          .avatar__img
+            img.avatar__img-icon(src="../img/avatar.jpg", alt="")
+          .avatar__title-top Владимир Астахов
+          .avatar__title-bottom Личный сайт веб разработчика
+        .hero__button-down
+          svg.button-down__img
+            use(xlink:href="../img/sprite.svg#arrow_down")
+      .hero__treangle-wrapp
+        .trangle-left
+          svg.button-down__img
+            use(xlink:href="../img/sprite.svg#my_about_bg_left")
+        .trangle-reight
+          svg.button-down__img
+            use(xlink:href="../img/sprite.svg#my_about_bg_right")
+    section.section.slider-section
+      .title__container.work-title
+        .container
+          .slider-section__bg-word
+            svg.bg-word__img.bg-word__img--work
+              use(xlink:href="../img/sprite.svg#works_header")
+          .section-title__wrapp
+            .section-title.slider-section__title Мои Pаботы
+      .slider-wrapp
+        .slider-wrapp__bg-left
+        .slider-wrapp__bg-right
+        .container.slider-container
+          .slider
+            .slider__info
+              ul.slider__info-list
+                li.slider__info-item
+                  .info-item__title Сайт школы онлайн Образования
+                  .info-item__desc HTML , CSS, JAVASCRIPT
+                  a.info-item__link(href="#")
+                    svg.link__img
+                      use(xlink:href="../img/sprite.svg#link")
+                    .link__text Посмотреть сайт
+            .slider__views
+              ul.slider__views-list
+                li.slider__views-item
+                  img.slider__views-img(src="../img/1.png", alt="")
+            .slider__buttons
+              .slider__buttons-left
+                ul.buttons-left__list
+                  li.buttons-left__item
+                    img.buttons-left__img(src="../img/4.png", alt="")
+                .slider__buttons-img
+                  svg.slider__buttons-img-icon.slider__buttons-img-icon--down
+                    use(xlink:href="../img/sprite.svg#portf_arrow_down")
+              .slider__buttons-reight
+                ul.buttons-reight__list
+                  li.buttons-reight__item
+                    img.buttons-reight__img(src="../img/2.png", alt="")
+                .slider__buttons-img
+                  svg.slider__buttons-img-icon.slider__buttons-img-icon--up
+                    use(xlink:href="../img/sprite.svg#portf_arrow_up")
+    section.section.about-section
+      .title__container.about-title
+        .container
+          .slider-section__bg-word
+            svg.bg-word__img.bg-word__img--work
+              use(xlink:href="../img/sprite.svg#about_header")
+          .section-title__wrapp
+            .section-title.slider-section__title Что обо мне говорят
+      .feedback
+        .feedback__bg
+          img.feedback__bg-img(src="../img/works-bottom_bg.png", alt="")
+        .feedback__content
+          .reviews
+            ul.reviews__list
+              li.reviews__item
+                .reviews__top Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                .reviews__bottom
+                  .reviews__img
+                    img.reviews__img-icon(src="", alt="")
+                  .reviews__autor
+                    .reviews__autor-name Ковальчук Дмитрий
+                    .reviews__autor-status основатель Loftschool
+              li.reviews__item
+                .reviews__top Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!
+                .reviews__bottom
+                  .reviews__img
+                    img.reviews__img-icon(src="", alt="")
+                  .reviews__autor
+                    .reviews__autor-name Сабанцев Владимир
+                    .reviews__autor-status преподаватель
+          .contacts-form
+            .contacts-form__blur
+            form#contacts(action="", method="post").contacts-form__form
+              .contacts-form__title
+              input.contacts-form__input#name(type="text" name="name" placeholder="Имя")
+              input.contacts-form__input#mail(type="text" name="mail" placeholder="Email")
+              textarea.contacts-form__textarea#message(name="message" placeholder="Ваше сообщение")
+            .contacts-form__buttons
+              button.contacts-form__send(form="contacts" type="submit") Отправить
+              button.contacts-form__clear(form="contacts" type="reset") Очистить
+        .feedback__arrow-up
+          svg.feedback__arrow-up-img
+            use(xlink:href="../img/sprite.svg#portf_arrow_up")
+            i.fa.fa-camera-retro
+
+    include ./common/menu.pug
+    
+
+        

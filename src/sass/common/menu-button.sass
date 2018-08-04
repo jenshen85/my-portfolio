@@ -1,0 +1,53 @@
+.menu-button__wrapp
+  right: 10px
+  top: 30px
+  position: absolute
+  z-index: 50
+  width: 40px
+  height: 35px
+
+.menu-button
+  width: 40px
+  height: 35px
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  cursor: pointer
+
+  &__elem
+    width: 40px
+    height: 5px
+    background-color: #fff
+    border-radius: 5px
+    +tr(all 0.5s)
+
+    &:before,
+    &:after
+      position: absolute
+      left: 0
+      content: ""
+      width: 40px
+      height: 5px
+      background-color: #fff
+      border-radius: 5px
+      will-change: transform
+      +tr(all 0.5s)
+    
+    &:before
+      top: 0
+      transform-origin: left bottom
+
+    &:after
+      bottom: 0
+      transform-origin: left top
+
+  &.active
+    .menu-button__elem
+      width: 0
+      &:before
+        width: 36px
+        transform: rotate(45deg) translate(2px, 0px)
+      &:after
+        width: 36px
+        transform: rotate(-45deg) translate(2px, 0px)

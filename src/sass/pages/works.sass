@@ -1,0 +1,330 @@
+.hero-section
+  background-color: #efebe0
+  background-image: url('../../img/welcom-bg.jpg')
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+  height: 100vh
+  width: 100%
+  position: relative
+
+.hero-container
+  width: 100%
+  height: 100%
+  position: relative
+
+.hero__bg-word
+  position: absolute
+  width: 100%
+  top: 50%
+  left: 0
+  transform: translateY(-50%)
+
+.bg-word__img--portfolio
+  fill: rgba(#fff, 0.2)
+  height: 300px
+
+.hero-socials
+  position: absolute
+  left: 10px
+  top: 30px
+
+.hero__avatar
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.avatar__img
+  width: 120px
+  height: 120px
+  border-radius: 50%
+  overflow: hidden
+
+.avatar__img-icon
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+.avatar__title-top
+  text-align: center
+  width: 100%
+  +roboto
+  font-size: rem(35px)
+  line-height: rem(45px)
+  font-weight: 500
+  color: #fff
+
+.avatar__title-bottom
+  width: 100%
+  text-align: center
+  +roboto
+  font-size: rem(16px)
+  line-height: rem(26px)
+  font-weight: 300
+  color: #fff
+
+.hero__button-down
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  bottom: 70px
+  width: 30px
+  height: 20px
+  cursor: pointer
+  z-index: 10
+  +tr(all 0.5s)
+
+  +hv
+    .button-down__img
+      transform: translateY(10px)
+
+.button-down__img
+  +tr(all 0.5s)
+  width: 100%
+  height: 100%
+  fill: rgba(#fff, 0.5)
+
+.hero__treangle-wrapp
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  display: flex
+
+.trangle-left,
+.trangle-reight
+  width: 50%
+  font-size: 0
+
+.button-down__img
+  width: 100%
+  fill: #faf8f0
+
+//slider-section
+
+.slider-section
+  width: 100%
+
+  &__container
+    width: 100%
+
+  &__bg-word
+    width: 100%
+
+    .bg-word__img--work
+      fill: #f0eee7
+
+  &__title
+    +bernr
+    font-size: rem(60px)
+    line-height: rem(70px)
+    color: #373e42
+
+.section-title__wrapp
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+.title__container
+  position: relative
+  // padding: 30px 0
+  background-color: #faf8f0
+
+.slider-wrapp
+  width: 100%
+  height: 100vh
+  background-color: #f0efe9
+  position: relative
+  display: flex
+
+  &__bg-left
+    background-color: #f0efe9
+    width: 50%
+    height: 100%
+
+  &__bg-right
+    background-color: #efebe0
+    width: 50%
+    height: 100%
+
+.slider-container
+  position: absolute
+  height: 100%
+  width: 100%
+  left: 50%
+  top: 0
+  transform: translateX(-50%)
+
+.slider
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  width: 100%
+  height: 100%
+  background-color: #f0efe9
+
+  &__info
+    width: 50%
+    height: 100%
+    order: 1
+
+  &__views
+    background-color: #efebe0
+    width: 50%
+    height: 70%
+    order: 2
+
+  &__views-list
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+
+  &__views-item
+    width: 100%
+    height: 100%
+    padding: 0 40px
+    display: flex
+    align-items: center
+    justify-content: center
+
+  &__views-img
+    width: 100%
+    height: 100%
+    object-fit: contain
+    display: block
+    font-size: 0
+
+  &__buttons
+    width: 50%
+    height: 30%
+    order: 3
+    display: flex
+    align-items: center
+    justify-content: center
+
+  &__buttons-left,
+  &__buttons-reight
+    width: 50%
+    height: 100%
+    position: relative
+    cursor: pointer
+
+    &:before
+      position: absolute
+      content: ""
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      z-index: 1
+      background-color: rgba(#888372, 0.5)
+
+  &__info-list
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+
+  &__info-item
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 80%
+
+.info-item
+  &__title
+    +bernr
+    font-size: rem(35px)
+    line-height: rem(45px)
+    color: $color-text
+    margin-bottom: 40px
+    text-align: center
+
+  &__desc
+    font-weight: 500
+    font-size: rem(16px)
+    line-height: rem(26px)
+    +roboto
+    color: $color-green
+    border-top: 2px solid $color-green
+    border-bottom: 2px solid $color-green
+    margin-bottom: 40px
+    width: 100%
+    padding: 20px 0
+    text-align: center
+
+  &__link
+    padding: 10px 20px
+    border-radius: 6px
+    background-color: $color-green
+    display: flex
+    justify-content: center
+    align-items: center
+    +tr(all 0.5s)
+    +hv
+      background-color: $color-green-hv
+    .link__img
+      width: 20px
+      height: 20px
+      fill: #fff
+      margin-right: 10px
+    .link__text
+      +roboto
+      font-weight: 500
+      font-size: rem(16px)
+      line-height: rem(26px)
+      color: #fff
+
+.buttons-left__list,
+.buttons-reight__list
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+
+.buttons-left__item,
+.buttons-reight__item
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+
+.buttons-reight__img,
+.buttons-left__img
+  width: 100%
+  height: 100%
+  object-fit: contain
+  display: block
+  font-size: 0
+
+.slider__buttons-img
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  z-index: 2
+
+  +hv
+    .slider__buttons-img-icon--up
+      transform: translateY(-15px)
+
+    .slider__buttons-img-icon--down
+      transform: translateY(15px)
+
+.slider__buttons-img-icon
+  width: 70px
+  height: 50px
+  fill: #fff
+  +tr(all 0.5s)

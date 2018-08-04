@@ -1,0 +1,16 @@
+.title-decor
+	position: relative
+
+	&:before,
+	&:after
+		position: absolute
+		content: ""
+		top: 50%
+		transform: translateY(-50%)
+		width: 25px
+		height: 5px
+		background-color: #d1d2d2
+	&:before
+		left: -35px
+	&:after
+		right: -35px

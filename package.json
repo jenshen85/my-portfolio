@@ -57,6 +57,8 @@
     "webpack-stream": "^4.0.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "font-awesome": "^4.7.0",
     "lodash": "^4.17.10",
     "node-normalize-scss": "^8.0.0",
     "svg4everybody": "^2.1.9"
