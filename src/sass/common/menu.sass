@@ -11,13 +11,17 @@
   overflow: hidden
   
   &.active
-    transform: translateY(0%)
+    animation: menu-animate 0.5s linear
+    animation-fill-mode: forwards
+    animation-delay: 0.5s
 
-    // .menu__overlay-left
-    //   animation: bg-translate-left 1s linear
+    .menu__overlay-left
+      animation: bg-translate-left 0.5s linear
+      animation-fill-mode: forwards
 
-    // .menu__overlay-right
-    //   animation: bg-translate-right 1s linear
+    .menu__overlay-right
+      animation: bg-translate-right 0.5s linear
+      animation-fill-mode: forwards
 
 .menu
   position: relative
@@ -97,6 +101,12 @@
 
     &:after
       right: -25px
+
+@keyframes menu-animate
+  from
+    transform: translateY(-200%)
+  to
+    transform: translateY(0%)
 
 @keyframes bg-translate-left
   from

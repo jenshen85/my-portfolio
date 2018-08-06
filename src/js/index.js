@@ -13,3 +13,4 @@ svg4everybody()
 import './common/main';
 import './common/modal';
 import './common/menu';
+import './common/work';

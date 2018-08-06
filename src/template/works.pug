@@ -78,7 +78,9 @@ block content
             svg.bg-word__img.bg-word__img--work
               use(xlink:href="../img/sprite.svg#about_header")
           .section-title__wrapp
-            .section-title.slider-section__title Что обо мне говорят
+            .section-title.slider-section__title
+              .slider-section__title-top Что обо мне
+              .slider-section__title-bottom говорят
       .feedback
         .feedback__bg
           img.feedback__bg-img(src="../img/works-bottom_bg.png", alt="")
@@ -86,25 +88,27 @@ block content
           .reviews
             ul.reviews__list
               li.reviews__item
+                i.fas.fa-quote-left
                 .reviews__top Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                 .reviews__bottom
                   .reviews__img
-                    img.reviews__img-icon(src="", alt="")
+                    img.reviews__img-icon(src="../img/reviews-avatar_1.jpg", alt="")
                   .reviews__autor
                     .reviews__autor-name Ковальчук Дмитрий
                     .reviews__autor-status основатель Loftschool
               li.reviews__item
+                i.fas.fa-quote-left
                 .reviews__top Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!
                 .reviews__bottom
                   .reviews__img
-                    img.reviews__img-icon(src="", alt="")
+                    img.reviews__img-icon(src="../img/reviews-avatar_2.jpg", alt="")
                   .reviews__autor
                     .reviews__autor-name Сабанцев Владимир
                     .reviews__autor-status преподаватель
           .contacts-form
             .contacts-form__blur
             form#contacts(action="", method="post").contacts-form__form
-              .contacts-form__title
+              .contacts-form__title Связаться со мной
               input.contacts-form__input#name(type="text" name="name" placeholder="Имя")
               input.contacts-form__input#mail(type="text" name="mail" placeholder="Email")
               textarea.contacts-form__textarea#message(name="message" placeholder="Ваше сообщение")
@@ -114,8 +118,6 @@ block content
         .feedback__arrow-up
           svg.feedback__arrow-up-img
             use(xlink:href="../img/sprite.svg#portf_arrow_up")
-            i.fa.fa-camera-retro
-
     include ./common/menu.pug
     
 

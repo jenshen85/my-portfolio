@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const dev = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 
@@ -18,7 +19,12 @@ const basicConfig = {
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery'
-    })
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      analyzerPort: 9000,
+      openAnalyzer: false,
+    }),
   ],
   module: {
     rules: [
@@ -28,7 +34,7 @@ const basicConfig = {
         use: {
           loader: "babel-loader"
         }
-      }
+      },
     ]
   },
   optimization: {

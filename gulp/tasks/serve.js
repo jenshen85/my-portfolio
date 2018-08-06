@@ -3,7 +3,8 @@ module.exports = function() {
     $.browserSync.init({
       open: false,
       notify: false,
-      server: $.dist
+      server: $.dist,
+      port: 9000
     });
     $.browserSync.watch(['src/**/*.*', '!**/*.css'], $.browserSync.reload);
   });
