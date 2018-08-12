@@ -1,10 +1,31 @@
-extends ./layout/_layout.pug
+extends ./layout/_layout-index.pug
 
 block title
   title Welcome
 
 block content
   section.section.welcom-section
+    .welcome__paralax#welcome__paralax
+      .paralax__layer
+        img.paralax__layer_img(src="../img/paralax/layer_7.png", alt="")
+      .paralax__layer
+        img.paralax__layer_img(src="../img/paralax/layer_6.png", alt="")
+      .paralax__layer
+        img.paralax__layer_img(src="../img/paralax/layer_5.png", alt="")
+      .paralax__layer_cloud
+        img.paralax__layer_img.paralax__layer_img--cloud(src="../img/paralax/layer_4_1.png", alt="")
+      .paralax__layer
+        img.paralax__layer_img(src="../img/paralax/layer_4.png", alt="")
+      .paralax__layer
+        img.paralax__layer_img(src="../img/paralax/layer_3.png", alt="")
+      .paralax__layer_cloud
+        img.paralax__layer_img.paralax__layer_img--cloud(src="../img/paralax/layer_2_1.png", alt="")
+      .paralax__layer
+        img.paralax__layer_img(src="../img/paralax/layer_2.png", alt="")
+      .paralax__layer
+        img.paralax__layer_img(src="../img/paralax/layer_1.png", alt="")
+      .paralax__layer_cloud
+        img.paralax__layer_img.paralax__layer_img--cloud(src="../img/paralax/layer_1_1.png", alt="")
     .container.welcom-container
       .welcom__button
         button.button.autorisation-button#autorisation-button Авторизоваться

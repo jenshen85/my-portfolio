@@ -1,0 +1,45 @@
+#welcome__paralax
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  overflow: hidden
+  background: #a9c2c1
+  // z-index: 0
+
+.paralax__layer, .paralax__layer_cloud
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  will-change: transform
+
+.paralax__layer_img
+  position: absolute
+  top: 55%
+  left: 50%
+  transform: translate(-50%, -50%)
+  // width: 115%
+  height: 150%
+  min-height: 100%
+
+.paralax__layer_img--cloud
+  width: 100%
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transform: translate(-85%, -15%)  
+  position: absolute
+
+// .paralax__layer_cloud
+//   animation: cloud 10s linear infinite
+
+@keyframes cloud
+  from
+    transform: translateX(0%)
+  too
+    transform: translateX(100%)

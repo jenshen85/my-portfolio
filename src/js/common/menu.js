@@ -1,22 +1,24 @@
 const MENU_BUTTON = document.querySelector('.menu-button');
 const MENU_BUTTON_WRAPP = document.querySelector('.menu-button__wrapp');
 const MENU = document.querySelector('.menu-wrapp');
+const CONTAINER = document.querySelector('.hero-container');
 
 let thumb = false
 
-console.log(MENU_BUTTON_WRAPP);
+let absoluteButtonPosX = (CONTAINER.offsetWidth - MENU_BUTTON_WRAPP.offsetLeft) - MENU_BUTTON_WRAPP.offsetWidth;
+let absoluteButtonPosY = MENU_BUTTON_WRAPP.offsetTop;
 
 if(MENU !== null) {
 
   MENU_BUTTON.addEventListener('click', (e) => {
-    console.log(MENU_BUTTON_WRAPP.offsetTop)
-    console.log(MENU_BUTTON_WRAPP.offsetRight)
-    // let wrapPositionTop = MENU_BUTTON_WRAPP.offsetTop
-    // let wrapPositionRight = MENU_BUTTON_WRAPP
 
+    let fixedButtonPosY = MENU_BUTTON_WRAPP.offsetTop
+    let fixedButtonPosX = (window.innerWidth - CONTAINER.offsetWidth) / 2
     thumb = !thumb
     MENU_BUTTON.classList.toggle('active');
-    // MENU_BUTTON_WRAPP.style.position = thumb ? "fixed" : "absolute";
+    MENU_BUTTON_WRAPP.style.position = thumb ? "fixed" : "absolute";
+    MENU_BUTTON_WRAPP.style.right = thumb ? `${fixedButtonPosX}px` : `${absoluteButtonPosX}px`;
+    MENU_BUTTON_WRAPP.style.top = thumb ? `${fixedButtonPosY}px` : `${absoluteButtonPosY}px`;
     MENU.classList.toggle('active');
 
   })

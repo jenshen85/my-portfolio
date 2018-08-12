@@ -4,3 +4,105 @@ block title
   title About my
 
 block content
+  div.wrapper.wrapper-height
+    main.main-content
+      section.section.hero-section
+        .container.hero-container
+          .hero__bg-word
+            svg.bg-word__img.bg-word__img--portfolio
+              use(xlink:href="../img/sprite.svg#portfolio_header")
+          .hero-socials
+            include ./common/socials.pug
+          .menu-button__wrapp
+            .menu-button
+              .menu-button__elem
+          .hero__avatar
+            .avatar__img
+              img.avatar__img-icon(src="../img/avatar.jpg", alt="")
+            .avatar__title-top Владимир Астахов
+            .avatar__title-bottom Личный сайт веб разработчика
+          .hero__button-down
+            svg.button-down__img
+              use(xlink:href="../img/sprite.svg#arrow_down")
+        .hero__treangle-wrapp
+          .trangle-left
+            svg.button-down__img.button-down__img--about-left
+              use(xlink:href="../img/sprite.svg#my_about_bg_left")
+          .trangle-reight
+            svg.button-down__img.button-down__img--about-right
+              use(xlink:href="../img/sprite.svg#my_about_bg_right")
+      section.section.about-info
+        .about-info__bg-left
+        .about-info__bg-right
+        .container.about-info-container
+          .about-info__content.about-info__content--left
+            .section-title.about-info__gen-title
+              .title-text.title-decor Обо мне
+              .bg-work
+                svg.bg-work__img
+                  use(xlink:href="../img/sprite.svg#about_header")
+            .about-info__photo
+              img.about-info__photo-img(src="../img/about-photo.jpg", alt="")
+            .about-info__desc
+              .sub-title.about-info__sub-title.about-info__desc-title
+                .title-text.title-decor Кто я
+              .about-info__desc-text
+                p
+                 | Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь 
+                 | разработкой современных сайтов и приложений. 
+                 | Мне нравится делать интересные и современные проекты.
+                p
+                 | Этот сайт я сделал в рамках обучения в Школе онлайн образования
+                 | LoftSchool. Чуть позже я освежу в нём свой контент. 
+                 | А пока посмотрите, как тут всё классно и красиво!
+          .about-info__content.about-info__content--right
+            .sub-title.about-info__sub-title.about-info__skills-title
+              .title-text.title-decor Чем я могу быть
+              .title-text вам полезен
+            .about-info__skills-desc
+              .about-info__desc-text
+                p
+                | Больше всего меня привлекет Frontend 
+                | разработка, но я также знаком и могу 
+                | решать не сложные задачи на Backend.
+                | Но давайте по порядку.
+            .about-info__skills
+              ul.skills__list
+                li.skills__item
+                  .skills__title Frontend
+                  .skills__img
+                li.skills__item
+                  .skills__title Backend
+                  .skills__img
+                li.skills__item
+                  .skills__title WorkFlow
+                  .skills__img
+      section.section.section-map
+        .map#map
+          .contacts-window
+            .sub-title.contacts-window__title Контакты
+            ul.contacts-window__list
+              li.contacts-window__item
+                a.contacts-window__link(href="")
+                  svg.contacts-window__img
+                    use(xlink:href="../img/sprite.svg#skype")
+                  .contacts-window__text skype_kdn
+              li.contacts-window__item
+                a.contacts-window__link(href="")
+                  svg.contacts-window__img
+                    use(xlink:href="../img/sprite.svg#envelope")
+                  .contacts-window__text astahov@gmail.com
+              li.contacts-window__item
+                a.contacts-window__link(href="")
+                  svg.contacts-window__img
+                    use(xlink:href="../img/sprite.svg#phone")
+                  .contacts-window__text +7 931 200 93 24
+              li.contacts-window__item
+                a.contacts-window__link(href="")
+                  svg.contacts-window__img
+                    use(xlink:href="../img/sprite.svg#map_marker")
+                  .contacts-window__text г.Новосибирск, ул. Инская, д. 5
+      include ./common/menu.pug 
+    - var footerCls= 'footer-about'
+    //- .footer-about
+    include ./common/footer.pug

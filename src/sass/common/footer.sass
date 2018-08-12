@@ -1,0 +1,75 @@
+.footer
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  background-color: #2f4347
+
+.footer-container
+  width: 100%
+  padding: 20px
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.footer-top,
+.footer-bottom
+  width: 100%
+
+.footer-top
+  border-bottom: 1px solid rgba(#fff, 0.3)
+
+.footer-nav
+  &__list
+    display: flex
+    align-items: center
+    justify-content: center
+  &__item
+    margin-right: 20px
+    +last
+      margin-right: 0
+  &__link
+    display: block
+    +roboto
+    font-weight: 500
+    font-size: rem(16px)
+    line-height: rem(16px)
+    color: #fff
+    +tr(all 0.4s)
+
+.footer-socials
+  &__list
+    display: flex
+    align-items: center
+    justify-content: center
+  &__item
+    margin-right: 15px
+    +last
+      margin-right: 0
+  &__link
+    display: block
+    width: 38px
+    height: 38px
+    display: flex
+    justify-content: center
+    align-items: center
+  &__img
+    width: 35px
+    height: 35px
+    fill: rgba(#fff, 0.3)
+    +tr(all 0.4s)
+    +hv
+      fill: rgba(#fff, 1)
+
+.footer-info,
+.footer-copyright
+  width: 50%
+  +roboto
+  font-weight: 300
+  font-size: rem(16px)
+  line-height: rem(24px)
+  color: rgba(#fff, 0.5)
+
+.footer-copyright
+  text-align: right

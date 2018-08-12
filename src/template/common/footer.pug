@@ -1,0 +1,36 @@
+footer(class=`footer ${footerCls || ''}`)
+  .footer-top
+    .container.footer-container
+      nav.footer-nav
+        ul.footer-nav__list
+          li.footer-nav__item
+            a.footer-nav__link(href="./works.html") Мои работы
+          li.footer-nav__item
+            a.footer-nav__link(href="./about.html") Обо мне
+          li.footer-nav__item
+            a.footer-nav__link(href="./blog.html") Блог
+          li.footer-nav__item
+            a.footer-nav__link(href="./index.html") Авторизация
+      .footer-socials  
+        ul.footer-socials__list
+          li.footer-socials__item
+            a.footer-socials__link(href="#")
+              svg.footer-socials__img
+                use(xlink:href="../../img/sprite.svg#telegram_logo")
+          li.footer-socials__item
+            a.footer-socials__link(href="https://vk.com/jenshen85")
+              svg.footer-socials__img
+                use(xlink:href="../../img/sprite.svg#vk_round")
+          li.footer-socials__item
+            a.footer-socials__link(href="https://github.com/jenshen85")
+              svg.footer-socials__img
+                use(xlink:href="../../img/sprite.svg#github_round")
+          li.footer-socials__item
+            a.footer-socials__link(href="#")
+              svg.footer-socials__img
+                use(xlink:href="../../img/sprite.svg#in_round")
+  .footer-bottom
+    .container.footer-container
+      .footer-info Я веб-разработчик из Новосибирска, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+      .footer-copyright
+       | © Владимир Астахов | создано с любовью в LoftSchool | 2016
