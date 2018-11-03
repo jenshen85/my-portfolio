@@ -7,7 +7,7 @@ let sliderStart = new Slider({
   slide: '.slide',
   buttonsLeft: '.slider__buttons-left .slider__buttons-img',
   buttonsRight: '.slider__buttons-right .slider__buttons-img',
-  duration: '700',
+  duration: '400',
 
 });
 
