@@ -179,21 +179,36 @@
     width: 50%
     height: 70%
     order: 2
+    position: relative
+    overflow: hidden
 
   &__views-list
-    width: 100%
-    height: 100%
     display: flex
     align-items: center
     justify-content: center
-
-  &__views-item
+    position: relative
+    // top: 0
+    // left: 0
     width: 100%
     height: 100%
+
+  &__views-item
     padding: 0 40px
     display: flex
     align-items: center
     justify-content: center
+    +tr(all 1s)
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    opacity: 0
+    &.active
+      // left: 0
+      opacity: 1
+      z-index: 5
 
   &__views-img
     width: 100%
@@ -211,11 +226,11 @@
     justify-content: center
 
   &__buttons-left,
-  &__buttons-reight
+  &__buttons-right
     width: 50%
     height: 100%
     position: relative
-    cursor: pointer
+    overflow: hidden
 
     &:before
       position: absolute
@@ -224,7 +239,7 @@
       height: 100%
       top: 0
       left: 0
-      z-index: 1
+      z-index: 9
       background-color: rgba(#888372, 0.5)
 
   &__info-list
@@ -286,22 +301,41 @@
       color: #fff
 
 .buttons-left__list,
-.buttons-reight__list
+.buttons-right__list
   width: 100%
   height: 100%
   display: flex
   align-items: center
   justify-content: center
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
 
 .buttons-left__item,
-.buttons-reight__item
+.buttons-right__item
   width: 100%
   height: 100%
   display: flex
   align-items: center
   justify-content: center
+  // +tr(all 0.4s)
+  position: absolute
+  left: 0
+  width: 100%
+  height: 100%
+  &.active
+    top: 0
+    z-index: 5
 
-.buttons-reight__img,
+.buttons-left__item
+  top: -100%
+
+.buttons-right__item
+  top: 100%
+
+.buttons-right__img,
 .buttons-left__img
   width: 100%
   height: 100%
@@ -310,24 +344,27 @@
   font-size: 0
 
 .slider__buttons-img
+  cursor: pointer
   position: absolute
   left: 50%
   top: 50%
   transform: translate(-50%, -50%)
-  z-index: 2
+  z-index: 10
 
-  +hv
+  &:active
     .slider__buttons-img-icon--up
-      transform: translateY(-15px)
+      // transform: translateY(-15px)
+      transform: scale(1.2)
 
     .slider__buttons-img-icon--down
-      transform: translateY(15px)
+      // transform: translateY(15px)
+      transform: scale(1.2)
 
 .slider__buttons-img-icon
   width: 70px
   height: 50px
   fill: #fff
-  +tr(all 0.5s)
+  +tr(all 0.2s)
 
 // reviews section
 

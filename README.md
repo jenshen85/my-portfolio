@@ -5,3 +5,5 @@
 2. `yarn or npm i`
 3. `npm run start` - for development
 4. `npm run build` - for production
+
+[DEMO](https://jenshen85.github.io/my-portfolio/dist/)
