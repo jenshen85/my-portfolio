@@ -20,11 +20,17 @@ function Slider(options) {
   that.containerView = document.querySelector(options.containerView);
   that.containerLeft = document.querySelector(options.containerLeft);
   that.containerRight = document.querySelector(options.containerRight);
-  that.lenghtChild = Math.max(
-    Array.from(that.containerView.querySelectorAll(options.slide)).length,
-    Array.from(that.containerLeft.querySelectorAll(options.slide)).length,
-    Array.from(that.containerRight.querySelectorAll(options.slide)).length
-  );
+
+  if(!that.containerView && !that.containerLeft && !that.containerRight) {
+    return
+  } else {
+    that.lenghtChild = Math.max(
+      Array.from(that.containerView.querySelectorAll(options.slide)).length,
+      Array.from(that.containerLeft.querySelectorAll(options.slide)).length,
+      Array.from(that.containerRight.querySelectorAll(options.slide)).length
+    );
+  }
+  
   that.buttonsLeft = document.querySelector(options.buttonsLeft);
   that.buttonsRight = document.querySelector(options.buttonsRight);
   that.duration = options.duration;
