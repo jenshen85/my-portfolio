@@ -7,8 +7,10 @@ import svg4everybody from 'svg4everybody';
 
 svg4everybody()
 
-// import fontawesome from "font-awesome"
-// fontawesome.dom.i2svg()
+// polyfill
+// =============================================================//
+import './lib/polyfills';
+// =============================================================//
 
 import './common/main';
 import './common/modal';

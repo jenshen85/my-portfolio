@@ -263,7 +263,22 @@
     line-height: rem(45px)
     color: $color-text
     margin-bottom: 40px
-    text-align: center
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    // text-align: center
+    .word
+      display: inline-block
+      margin-right: rem(10px)
+      span
+        +tr(all 0.5s)
+        display: inline-block
+        opacity: 0
+        transform: translateY(5px)
+        &.active
+          opacity: 1
+          transform: translateY(0)
 
   &__desc
     font-weight: 500
@@ -276,8 +291,23 @@
     margin-bottom: 40px
     width: 100%
     padding: 20px 0
-    text-align: center
-
+    // text-align: center
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    .word
+      display: inline-block
+      margin-right: rem(10px)
+      span
+        +tr(all 0.5s)
+        display: inline-block
+        transform: translateY(5px)
+        opacity: 0
+        &.active
+          opacity: 1
+          transform: translateY(0)
+  
   &__link
     padding: 10px 20px
     border-radius: 6px
