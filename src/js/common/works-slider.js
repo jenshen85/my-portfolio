@@ -8,7 +8,7 @@ let sliderStart = new Slider({
   slide: '.slide',
   buttonsLeft: '.slider__buttons-left .slider__buttons-img',
   buttonsRight: '.slider__buttons-right .slider__buttons-img',
-  duration: '400',
+  duration: '800',
 
 });
 
@@ -134,31 +134,21 @@ function Slider(options) {
   that.sliderInfoFill = (container, getAttrContainer, i) => {
 
     let viewTitle = container.querySelector('.info-item__title'),
-    viewDesc = container.querySelector('.info-item__desc'),
-    viewLink = container.querySelector('.info-item__link');
+        viewDesc = container.querySelector('.info-item__desc'),
+        viewLink = container.querySelector('.info-item__link');
 
     let child = Array.from(getAttrContainer.children);
-    if(i >= child.length) i = 0
-    if(i < 0) i = child.length - 1
+
+    if(i >= child.length) i = 0;
+    if(i < 0) i = child.length - 1;
+
     let title = child[i].getAttribute('data-title'),
-    desc = child[i].getAttribute('data-technology'),
-    link = child[i].getAttribute('data-link');
-    title = title.split('');
-    desc = desc.split('');
-  
-    splitWord(title)
-    splitWord(desc)
+        desc = child[i].getAttribute('data-technology'),
+        link = child[i].getAttribute('data-link');
+
+    title = splitWord(title, viewTitle, that.duration);
+    desc = splitWord(desc, viewDesc, that.duration);
     viewLink.href = link;
-  
-    animate({
-      duration: that.duration,
-      draw(progress) {
-        console.log(  Math.round(that.duration/title.length)  );
-        // viewTitle.appendChild(title[])
-        // viewDesc.appendChild(desc[])
-      }})
-    
-    // console.log(title.length);
   }
   
   that.countSlide = (counter, arrSlide)=> {
@@ -177,18 +167,28 @@ function Slider(options) {
   that.init();
 }
 
-function splitWord(arr) {
-  if(!Array.isArray(arr)) {
-    console.error('not array!!!');
-  }
-  
-  // nodeElem.textContent = '';
-  arr.forEach((el,i)=> {
+function splitWord(word, nodeElem, dur) {
+  let duration = dur/word.split('').length;
+  let splWord  = word.split(' ');
+  nodeElem.textContent = '';
+  let div = 0;
+  splWord.forEach((el,i)=> {
+    
     let span = document.createElement('span');
-    span.textContent = el;
-    arr[i] = span
-  })
-  return arr;
+    span.className = 'word';
+
+    el.split('').forEach((leter, j)=> {
+      let spanLeter = document.createElement('span');
+      spanLeter.textContent = leter;
+      span.appendChild(spanLeter);
+      setTimeout(()=> {
+        spanLeter.classList.add('active')
+      }, duration * div * 1.3);
+      div++;
+    })
+    nodeElem.appendChild(span);
+  });
+  return splWord;
 }
 
 // ===  RAF  ===
