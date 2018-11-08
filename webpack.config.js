@@ -37,20 +37,20 @@ const basicConfig = {
       },
     ]
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        default: false,
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'initial',
-          // chunks: 'all',
-          // minChunks: 2
-        },
-      }
-    }
-  }
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       default: false,
+  //       commons: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendor',
+  //         chunks: 'initial',
+  //         // chunks: 'all',
+  //         // minChunks: 2
+  //       },
+  //     }
+  //   }
+  // }
 };
 
 if (!dev) {

@@ -20,3 +20,4 @@ import './common/paralax';
 import './common/paralax-scroll';
 import './common/works-slider';
 import './common/skills';
+import './common/map';
