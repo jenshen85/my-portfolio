@@ -1,12 +1,18 @@
 'use strict'
 
-// svg polyfill
+// object-fit and object-position polyfill
+// =============================================================//
+import objectFitImages from 'object-fit-images';
+// =============================================================//
+
+
+// svg-sprite polyfill
 // =============================================================//
 import svg4everybody from 'svg4everybody';
 // =============================================================//
 
-svg4everybody()
-
+objectFitImages();
+svg4everybody();
 // polyfill
 // =============================================================//
 import './lib/polyfills';

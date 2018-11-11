@@ -10,7 +10,7 @@ if (MapContainer) {
     scrollWheelZoom: false 
   });
 
-  map.setView([48.004352, 37.993656], 12)
+  map.setView([47.961997, 36.745420], 9)
 
   L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     {
@@ -20,13 +20,13 @@ if (MapContainer) {
   ).addTo(map);
 
 
-  // var custIcon = L.icon({
-    // iconUrl: './assets/img/pointer.svg',
-    // iconSize: [30, 46], // size of the icon
-  // });
+  let custIcon = L.icon({
+    iconUrl: './assets/img/icons/map_marker.svg',
+    iconSize: [40, 56], // size of the icon
+  });
 
-  L.marker([48.031081, 38.153155]).addTo(map);
-  // , {icon: custIcon}
+  L.marker([48.031081, 38.153155], {icon: custIcon}).addTo(map);
+  // 
 }
 
 
