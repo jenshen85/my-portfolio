@@ -146,8 +146,15 @@ function Slider(options) {
         desc = child[i].getAttribute('data-technology'),
         link = child[i].getAttribute('data-link');
 
-    title = splitWord(title, viewTitle, that.duration);
-    desc = splitWord(desc, viewDesc, that.duration);
+    splitWord(
+      title,
+      viewTitle,
+      desc,
+      viewDesc,
+      that.duration,
+      null,
+      splitWord
+    );
     viewLink.href = link;
   }
   
@@ -167,11 +174,11 @@ function Slider(options) {
   that.init();
 }
 
-function splitWord(word, nodeElem, dur) {
-  let duration = dur/word.split('').length;
+function splitWord(word, nodeElem, wordTwo, nodeElemTwo, dur, div, cb) {
+  let duration = dur / word.length;
   let splWord  = word.split(' ');
   nodeElem.textContent = '';
-  let div = 0;
+  div = div || 0;
   splWord.forEach((el,i)=> {
     
     let span = document.createElement('span');
@@ -183,12 +190,14 @@ function splitWord(word, nodeElem, dur) {
       span.appendChild(spanLeter);
       setTimeout(()=> {
         spanLeter.classList.add('active')
-      }, duration * div * 1.3);
+      }, duration * div);
       div++;
     })
     nodeElem.appendChild(span);
   });
-  return splWord;
+  if(cb) {
+    cb(wordTwo, nodeElemTwo, null, null, dur, div);
+  }
 }
 
 // ===  RAF  ===
@@ -196,12 +205,10 @@ function animate({draw, duration, after}) {
 
   let start = performance.now();
   requestAnimationFrame(function animate(time) {
-    // timeFraction goes from 0 to 1
     let timeFraction = ((time - start));
 
     if(timeFraction <= 0) timeFraction = 1;
     if (timeFraction > duration) timeFraction = duration;
-    // calculate the current animation state
     let progress = (timeFraction / duration) * 100
     
     draw(progress); // draw it

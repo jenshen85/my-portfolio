@@ -119,12 +119,36 @@
       margin-bottom: 0
 
 .about-info__skills-desc
+  width: 100%
   margin-bottom: 50px
-
+.about-info__skills
+  width: 100%
 .skills__item
-  margin-bottom: 40px
-  +last
-    margin-bottom: 0
+  width: 100%
+
+.skills__img
+  width: 100%
+  display: flex
+  flex-wrap: wrap
+
+.skills__img-item
+  width: 33.33333%
+  position: relative
+  svg
+    width: 100%
+    height: auto
+
+.skills__img-title
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  color: #1bb696
+  text-transform: uppercase
+  text-align: center
+  font-weight: 700
+  font-size: rem(14px)
+  line-height: rem(16px)
 
 .skills__title
   +roboto
@@ -132,7 +156,6 @@
   font-size: rem(28px)
   line-height: rem(28px)
   color: #455a64
-  margin-bottom: 20px
 
 .section-map
   background-color: #efeee9
@@ -160,6 +183,7 @@
   padding: 40px
   border-radius: 6px
   background-color: rgba(#fff, 0.85)
+  z-index: 400
   &__title
     color: #373e42
     width: 100%
@@ -198,4 +222,5 @@
   bottom: 0
   left: 0
   background-color: rgba(#2f4347, 0.85)
+  z-index: 1000
 

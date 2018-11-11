@@ -1,7 +1,12 @@
-const result = document.querySelector('.result');
+import {scrollTop, getCoords} from '../lib/utils';
+
+let contr = document.querySelector('.skills__list');
+const front = document.querySelector('.front .skills__img');
+const back = document.querySelector('.back .skills__img');
+const workFl = document.querySelector('.workfl .skills__img');
 
 class Skill {
-  constructor(width, height, container, percent) {
+  constructor(width, height, container, percent, title) {
     this.svgns = 'http://www.w3.org/2000/svg';
     this.svg = document.createElementNS(this.svgns, 'svg');
     this.width = width;
@@ -16,8 +21,7 @@ class Skill {
 
     this.baseCircle = this.createCircle('#1bb696', true);
     this.bgCircle = this.createCircle('#ccc');
-
-    this.add(container);
+    this.add(container, title);
   }
 
   createCircle(color, isBase = false) {
@@ -38,10 +42,17 @@ class Skill {
     return circle;
   }
 
-  add(container) {
+  add(container, title) {
+    let homeDiv = document.createElement('div');
+    homeDiv.className = 'skills__img-item'
+    let div = document.createElement('div');
+    div.className = 'skills__img-title';
+    div.textContent = title;
     this.svg.appendChild(this.bgCircle);
     this.svg.appendChild(this.baseCircle);
-    container.appendChild(this.svg);
+    homeDiv.appendChild(this.svg)
+    homeDiv.appendChild(div)
+    container.appendChild(homeDiv);
     return this;
   }
 
@@ -53,37 +64,92 @@ class Skill {
   }
 }
 
-const skillHtml = new Skill(150, 150, result, 0.65);
-const skillCss = new Skill(150, 150, result, 0.75);
+if(front && back && workFl) {
+  const skillHtml = new Skill(150, 150, front, 0.95, 'Html');
+  const skillCss = new Skill(150, 150, front, 0.75, 'Css');
+  const skillJs = new Skill(150, 150, front, 0.85, 'Js');
+
+  const skillPSql = new Skill(150, 150, back, 0.45, 'Postgre Sql');
+  const skillNode = new Skill(150, 150, back, 0.75, 'Node & Npm');
+  const skillMongo = new Skill(150, 150, back, 0.75, 'MongoDB');
+
+  const skillGulp = new Skill(150, 150, workFl, 0.95, 'Gulp');
+  const skillGit = new Skill(150, 150, workFl, 0.75, 'Git');
+  const skillWebpack = new Skill(150, 150, workFl, 0.45, 'Webpack');
+
+  let offAnim = {};
+  let heightList = ()=> Math.floor(contr.scrollHeight / 3);
+
+  window.addEventListener('scroll', ()=> {
+
+    if((window.pageYOffset || document.documentElement.scrollTop) === 0) {
+      for(let key in offAnim) {
+        offAnim[key] = false;
+      }
+    }
+
+    if(scrollTop > (getCoords(front).top + heightList()) && !offAnim.front) {
+      animate({
+        duration: 700,
+        timing: function(timeFraction) {
+          return timeFraction;
+        },
+        draw: function(progress) {
+          skillHtml.draw(progress);
+          skillCss.draw(progress);
+          skillJs.draw(progress);
+        }
+      })
+      offAnim.front = true;
+    }
+
+    if(scrollTop > (getCoords(back).top + heightList()) && !offAnim.back) {
+      animate({
+        duration: 700,
+        timing: function(timeFraction) {
+          return timeFraction;
+        },
+        draw: function(progress) {
+          skillPSql.draw(progress);
+          skillNode.draw(progress);
+          skillMongo.draw(progress);
+        }
+      })
+      offAnim.back = true;
+    }
+    
+    if(scrollTop > (getCoords(workFl).top + heightList()) && !offAnim.workfl) {
+      animate({
+        duration: 700,
+        timing: function(timeFraction) {
+          return timeFraction;
+        },
+        draw: function(progress) {
+          skillGulp.draw(progress);
+          skillGit.draw(progress);
+          skillWebpack.draw(progress);
+        }
+      })
+      offAnim.workfl = true;
+    }
+  })
+
+
+}
+
+
 
 function animate(options) {
   let start = performance.now();
 
   requestAnimationFrame(function _animate(time) {
-    // timeFraction от 0 до 1
     let timeFraction = (time - start) / options.duration;
     if (timeFraction > 1) timeFraction = 1;
-
-    // текущее состояние анимации
     let progress = options.timing(timeFraction);
-
     options.draw(progress);
-
     if (timeFraction < 1) {
       requestAnimationFrame(_animate);
     }
   });
 }
 
-anim.onclick = function() {
-  animate({
-    duration: 700,
-    timing: function(timeFraction) {
-      return timeFraction;
-    },
-    draw: function(progress) {
-      skillHtml.draw(progress);
-      skillCss.draw(progress);
-    }
-  })
-}

@@ -57,8 +57,10 @@
 
 	&.active
 		.flipper__front
+			-ms-transform: rotateY(180deg);
 			transform: rotateY(180deg)
 		.flipper__back
+			-ms-transform: rotateY(360deg);
 			transform: rotateY(360deg)
 
 .flipper__front,
@@ -76,11 +78,16 @@
 	flex-direction: column
 	justify-content: space-between
 	backface-visibility: hidden
-	+tr(all 0.5s)
+	// +tr(all 0.5s)
+	transition: all 0.5s
+	-moz-transition: all 0.5s
+	-webkit-transition: all 0.5s
+	-o-transition: all 0.5s
 	will-change: transform
 
 
 .flipper__back
+	-ms-transform: rotateY(180deg);
 	transform: rotateY(180deg)
 
 .front__content,

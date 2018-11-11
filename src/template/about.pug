@@ -68,40 +68,40 @@ block content
                 | Но давайте по порядку.
             .about-info__skills
               ul.skills__list
-                li.skills__item
+                li.skills__item.front
                   .skills__title Frontend
                   .skills__img
-                li.skills__item
+                li.skills__item.back
                   .skills__title Backend
                   .skills__img
-                li.skills__item
+                li.skills__item.workfl
                   .skills__title WorkFlow
                   .skills__img
       section.section.section-map
         .map#map
-          .contacts-window
-            .sub-title.contacts-window__title Контакты
-            ul.contacts-window__list
-              li.contacts-window__item
-                a.contacts-window__link(href="")
-                  svg.contacts-window__img
-                    use(xlink:href="../img/sprite.svg#skype")
-                  .contacts-window__text skype_kdn
-              li.contacts-window__item
-                a.contacts-window__link(href="")
-                  svg.contacts-window__img
-                    use(xlink:href="../img/sprite.svg#envelope")
-                  .contacts-window__text astahov@gmail.com
-              li.contacts-window__item
-                a.contacts-window__link(href="")
-                  svg.contacts-window__img
-                    use(xlink:href="../img/sprite.svg#phone")
-                  .contacts-window__text +7 931 200 93 24
-              li.contacts-window__item
-                a.contacts-window__link(href="")
-                  svg.contacts-window__img
-                    use(xlink:href="../img/sprite.svg#map_marker")
-                  .contacts-window__text г.Новосибирск, ул. Инская, д. 5
+        .contacts-window
+          .sub-title.contacts-window__title Контакты
+          ul.contacts-window__list
+            li.contacts-window__item
+              a.contacts-window__link(href="")
+                svg.contacts-window__img
+                  use(xlink:href="../img/sprite.svg#skype")
+                .contacts-window__text skype_kdn
+            li.contacts-window__item
+              a.contacts-window__link(href="")
+                svg.contacts-window__img
+                  use(xlink:href="../img/sprite.svg#envelope")
+                .contacts-window__text astahov@gmail.com
+            li.contacts-window__item
+              a.contacts-window__link(href="")
+                svg.contacts-window__img
+                  use(xlink:href="../img/sprite.svg#phone")
+                .contacts-window__text +7 931 200 93 24
+            li.contacts-window__item
+              a.contacts-window__link(href="")
+                svg.contacts-window__img
+                  use(xlink:href="../img/sprite.svg#map_marker")
+                .contacts-window__text г.Новосибирск, ул. Инская, д. 5
       include ./common/menu.pug 
     - var footerCls= 'footer-about'
     //- .footer-about
