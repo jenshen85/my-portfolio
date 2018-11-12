@@ -1,8 +1,5 @@
 'use strict'
 
-// import fontawesome from '@fortawesome/fontawesome-free-webfonts'
-// fontawesome.dom.i2svg()
-
 const welcomButton = document.getElementById('autorisation-button');
 const toGeneral = document.getElementById('to-general')
 const backButton =document.querySelector('.welcom__button');

@@ -1,3 +1,4 @@
+// blur
 let wrapp = document.querySelector('.contacts-form')
 let form = document.querySelector('.contacts-form__blur')
 let imgBgWrapp = document.querySelector('.feedback__bg')
@@ -28,4 +29,5 @@ if(wrapp !== null) {
     blur.set();
   }  
 }
+// blur
 

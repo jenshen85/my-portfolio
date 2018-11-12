@@ -1,4 +1,4 @@
-// buttons slider
+// slider
 
 let sliderStart = new Slider({
   containerView: '.slider__views-list',
@@ -55,7 +55,7 @@ function Slider(options) {
     if(that.counter >= items.length) that.counter = 0;
     if(that.counter < 0) that.counter = items.length - 1;
     that.countSlide( activeItem.index, that.lenghtChild);
-    // console.log(activeItem.index);
+
     if(orientation === 'prev') {
       reqItem = items[that.counterPrev];
       viewIdx = that.counterPrev;
