@@ -8852,6 +8852,10 @@ main {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .blog__nav-list {
@@ -8880,17 +8884,17 @@ main {
   color: #455a64;
   font-size: 1rem;
   line-height: 1.625rem;
-  font-weight: 400;
+  font-weight: 700;
   text-align: right;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
   padding: 15px 20px 15px 0;
+  border-right: 3px solid transparent;
   cursor: pointer;
 }
 
-.blog__nav-item.active {
-  font-weight: 700;
+.blog__nav-item:hover, .blog__nav-item.active {
   color: #00bfa5;
   border-right: 3px solid #00bfa5;
 }
@@ -8950,7 +8954,8 @@ main {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  margin-bottom: 65px;
+  padding-top: 30px;
+  margin-bottom: 35px;
   padding-bottom: 70px;
   border-bottom: 5px solid #f1f1f2;
 }

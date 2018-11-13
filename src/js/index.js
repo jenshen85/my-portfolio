@@ -27,3 +27,4 @@ import './common/paralax-scroll';
 import './common/works-slider';
 import './common/skills';
 import './common/map';
+import './common/fixed-aside';
