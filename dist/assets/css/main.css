@@ -8954,7 +8954,8 @@ main {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  margin-bottom: 65px;
+  padding-top: 30px;
+  margin-bottom: 35px;
   padding-bottom: 70px;
   border-bottom: 5px solid #f1f1f2;
 }
